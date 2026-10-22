@@ -82,7 +82,8 @@ tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
 td.att { color: var(--ink); }
 td.att::after { content: "•"; color: var(--mark); margin-left: 4px; }
 td.none { color: var(--muted); }
-.examples { list-style: none; margin: 14px 0 0; padding: 0; max-width: 80ch; display: grid; gap: 10px; }
+.exh { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 4px 0 8px; }
+.examples { list-style: none; margin: 0 0 16px; padding: 0; max-width: 80ch; display: grid; gap: 10px; }
 .examples li { border-left: 3px solid var(--line); padding: 2px 0 2px 12px; }
 .examples li.book { border-left-color: var(--mark); }
 .examples .ka { font-family: var(--geo); font-size: 1.02rem; }
@@ -173,14 +174,14 @@ function detail(v) {
     el("span", {}, "Где: " + v.src.join(", ")));
   d.append(meta);
   if (v.note) d.append(el("p", { class: "note" }, v.note));
-  d.append(table(v));
   if (v.examples && v.examples.length) {
     const forms = new Set(Object.values(v.forms).flat().filter(Boolean).flatMap(f => f.match(/[ა-ჿ]+/g) || []));
     const ka = s => s.split(/([ა-ჿ]+)/).map(w => forms.has(w) ? el("mark", {}, w) : w);
-    d.append(el("ul", { class: "examples" }, ...v.examples.map(e => el("li", { class: e.src === "book" ? "book" : "" },
+    d.append(el("h3", { class: "exh" }, "Примеры"), el("ul", { class: "examples" }, ...v.examples.map(e => el("li", { class: e.src === "book" ? "book" : "" },
       el("div", { class: "ka", lang: "ka" }, ...ka(e.ka), e.src === "book" ? el("span", { class: "src", title: "Предложение из книги" }, e.where || "из книги") : null),
       el("div", { class: "tr" }, e.ru)))));
   }
+  d.append(table(v));
   return d;
 }
 

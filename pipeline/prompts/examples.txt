@@ -1,0 +1,15 @@
+You are an expert in Georgian grammar and a Russian translator. You are building example sentences for a verb reference for Russian-speaking learners of Georgian (textbook series „აღმართი“, levels A1–B1).
+
+Input: {IN} — JSON array of verbs. Each has id, pres3 (3sg present), masdar, ru (meaning), level, forms (present/future/aorist, 6 persons each) and candidates: real sentences from the textbooks containing a form of this verb, with "where" (level + book).
+
+For EVERY verb write exactly 3 examples to {OUT} as JSON Lines, one line per verb:
+{"id": <id>, "examples": [{"ka": "...", "ru": "...", "src": "book", "where": "A1 учебник"}, {"ka": "...", "ru": "...", "src": "made"}, ...]}
+
+Rules:
+- Prefer book sentences (src "book", copy "where" from the candidate). Take one only if it is a natural, self-contained sentence where THIS verb (not a homonym or a different verb with the same root) is used. Skip task instructions to students ("შეადგინეთ წინადადებები", "წაიკითხეთ ტექსტი", "მოისმინეთ..."), methodology text from the teacher's book ("დავალება ავითარებს უნარებს") and fragments, unless nothing else exists for this verb. You may trim a long book sentence to a clean clause, fix PDF-extraction junk (double spaces, leading exercise numbers, broken words), but do not otherwise rewrite it.
+- Fill the rest with your own sentences (src "made"): short (4–10 words), natural everyday Georgian, vocabulary appropriate to the verb's level, grammatically flawless (case of subject/object must match the verb's series: ergative in aorist for transitive verbs, dative subject for inversive verbs, etc.).
+- Across the 3 examples try to show different tenses: ideally one present, one past (aorist or imperfect) and one future or optative (e.g. after მინდა / უნდა / რომ). Use different persons, not only 3sg.
+- ru: accurate, natural Russian translation of the whole sentence (not word-for-word).
+- Use ONLY the meaning given in "ru" for this verb (if several meanings, you may illustrate two).
+- No other fields, no commentary. Every input id must appear exactly once in the output. Write the file incrementally if convenient (e.g. append in batches with a Python or shell heredoc), but make sure the final file is valid JSONL. When done, verify with a short Python check that the number of lines equals the number of input verbs and each has 3 examples, then reply with just the counts (verbs, book examples, made examples).
+Do not spawn subagents.

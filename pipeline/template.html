@@ -1,0 +1,235 @@
+<title>Глаголы «აღმართი»</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@500;700&family=Noto+Sans+Georgian:wght@400;500;600&family=PT+Sans:wght@400;700&family=PT+Mono&display=swap">
+<style>
+/* Layout: a single reading column like a printed verb table book; sticky search band, level sections, rows open into a 6×5 conjugation grid */
+:root {
+  --bg: #f6f7f4;
+  --surface: #ffffff;
+  --ink: #1d2320;
+  --muted: #5d6862;
+  --line: #dde2dc;
+  --accent: #1f5f8b;        /* the deep blue of the series' covers and site header */
+  --accent-soft: #e3edf4;
+  --mark: #b7791f;          /* attested-in-book marker */
+  --a1: #7fae3a; --a2: #8d6cab; --a2p: #3f8fc4; --b1: #2e9a8a;
+  --display: "Noto Serif Georgian", "PT Sans", Georgia, serif;
+  --body: "PT Sans", "Noto Sans Georgian", system-ui, sans-serif;
+  --geo: "Noto Sans Georgian", "PT Sans", system-ui, sans-serif;
+  --mono: "PT Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131816; --surface: #1b211f; --ink: #e6ebe7; --muted: #9aa69f; --line: #2c3532;
+    --accent: #7fb6dd; --accent-soft: #1d2c37; --mark: #e0a84a;
+    --a1: #9ccb58; --a2: #b495d1; --a2p: #6db3e3; --b1: #55c0ae;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131816; --surface: #1b211f; --ink: #e6ebe7; --muted: #9aa69f; --line: #2c3532;
+  --accent: #7fb6dd; --accent-soft: #1d2c37; --mark: #e0a84a;
+  --a1: #9ccb58; --a2: #b495d1; --a2p: #6db3e3; --b1: #55c0ae;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.45; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 980px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { padding-block: 28px 8px; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h1 .geo { color: var(--accent); }
+.lede { color: var(--muted); max-width: 65ch; margin: 6px 0 0; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 12px; }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.search { flex: 1 1 280px; min-width: 0; position: relative; }
+.search input { width: 100%; font: inherit; font-family: var(--geo); padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); }
+.search input:focus-visible, button:focus-visible, .row:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 10px; border-radius: 999px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.chip.toggle[aria-pressed="true"] { background: var(--accent-soft); }
+.count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+main { padding-block: 8px 60px; }
+section.level { margin-top: 26px; }
+section.level h2 { font-family: var(--display); font-size: 1.25rem; margin: 0 0 6px; display: flex; align-items: baseline; gap: 10px; }
+section.level h2 .tag { font-family: var(--body); font-size: 13px; font-weight: 700; color: #fff; background: var(--c); padding: 2px 8px; border-radius: 4px; letter-spacing: .04em; }
+section.level h2 small { font-family: var(--body); font-weight: 400; font-size: 13px; color: var(--muted); }
+.list { border-top: 1px solid var(--line); }
+.item { border-bottom: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 11rem) minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 9px 4px; cursor: pointer; width: 100%; text-align: left; background: none; border: 0; color: inherit; font: inherit; }
+.row:hover { background: var(--accent-soft); }
+.row .pres { font-family: var(--geo); font-weight: 600; font-size: 1.05rem; }
+.row .masd { font-family: var(--geo); color: var(--muted); }
+.row .ru { min-width: 0; }
+.row .flags { display: flex; gap: 4px; }
+.flag { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
+.detail { padding: 6px 4px 18px; }
+.detail .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+.detail .meta b { color: var(--ink); font-weight: 600; font-family: var(--geo); }
+.note { font-size: 14px; background: var(--accent-soft); border-radius: 6px; padding: 8px 10px; margin: 0 0 10px; max-width: 75ch; }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-family: var(--geo); font-size: 15px; }
+th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+thead th { font-family: var(--body); font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; vertical-align: bottom; }
+thead th span { display: block; font-family: var(--geo); text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 12px; }
+tbody th { font-weight: 500; color: var(--muted); }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+td.att { color: var(--ink); }
+td.att::after { content: "•"; color: var(--mark); margin-left: 4px; }
+td.none { color: var(--muted); }
+.exh { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 4px 0 8px; }
+.examples { list-style: none; margin: 0 0 16px; padding: 0; max-width: 80ch; display: grid; gap: 10px; }
+.examples li { border-left: 3px solid var(--line); padding: 2px 0 2px 12px; }
+.examples li.book { border-left-color: var(--mark); }
+.examples .ka { font-family: var(--geo); font-size: 1.02rem; }
+.examples .ka mark { background: none; color: inherit; font-weight: 700; }
+.examples .tr { color: var(--muted); font-size: 14px; }
+.examples .src { font-size: 12px; color: var(--muted); margin-left: 6px; white-space: nowrap; }
+.legend { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.legend i { color: var(--mark); font-style: normal; }
+.empty { color: var(--muted); padding: 30px 4px; }
+footer { color: var(--muted); font-size: 13px; padding-block: 20px 40px; border-top: 1px solid var(--line); }
+@media (max-width: 640px) {
+  .row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "pres flags" "masd masd" "ru ru"; gap: 2px 8px; }
+  .row .pres { grid-area: pres; } .row .masd { grid-area: masd; } .row .ru { grid-area: ru; } .row .flags { grid-area: flags; }
+}
+@media (prefers-reduced-motion: no-preference) { .row { transition: background .12s; } }
+</style>
+
+<header class="top wrap">
+  <h1>Глаголы <span class="geo">„აღმართი“</span></h1>
+  <p class="lede">Все глаголы из учебников, рабочих тетрадей и книг учителя уровней A1, A2, A2+ и B1, с формами настоящего, будущего, прошедшего совершенного (аорист), прошедшего несовершенного (имперфект) и оптатива — формы после <span lang="ka">მინდა</span>: <span lang="ka">მინდა ვიმუშაო</span>. Каждый глагол стоит на том уровне, где он впервые встречается.</p>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="search">
+      <input id="q" type="search" placeholder="Поиск: წერ, ვიმუშაო, писать или latinicej: wer" autocomplete="off" aria-label="Поиск глагола">
+    </div>
+    <div class="chips" id="levels"></div>
+    <button class="chip toggle" id="teacher" aria-pressed="false" title="Показывать глаголы, которые встречаются только в книге учителя">+ книга учителя</button>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const DATA = __DATA__;
+const META = __META__;
+const LEVELS = [["A1","--a1"],["A2","--a2"],["A2+","--a2p"],["B1","--b1"]];
+const TENSES = [["present","Настоящее","აწმყო"],["future","Будущее","მყოფადი"],["aorist","Прош. соверш.","წყვეტილი"],["imperfect","Прош. несоверш.","უწყვეტელი"],["optative","Оптатив","მინდა / უნდა …"]];
+const PERSONS = ["მე","შენ","ის","ჩვენ","თქვენ","ისინი"];
+const INDIRECT_PERSONS = ["მე","შენ","მას","ჩვენ","თქვენ","მათ"];
+const TYPE_RU = {transitive:"переходный", intransitive:"непереходный", medial:"медиальный", indirect:"инверсивный (косвенный)", stative:"статический", impersonal:"безличный", other:""};
+const LAT = {a:"ა",b:"ბ",g:"გ",d:"დ",e:"ე",v:"ვ",z:"ზ",T:"თ",i:"ი",k:"კ",l:"ლ",m:"მ",n:"ნ",o:"ო",p:"პ",J:"ჟ",r:"რ",s:"ს",t:"ტ",u:"უ",f:"ფ",q:"ქ",R:"ღ",y:"ყ",S:"შ",C:"ჩ",c:"ც",Z:"ძ",w:"წ",W:"ჭ",x:"ხ",j:"ჯ",h:"ჰ"};
+const toGeo = s => /[a-zA-Z]/.test(s) && !/[а-яё]/i.test(s) ? [...s].map(ch => LAT[ch] ?? LAT[ch.toLowerCase()] ?? ch).join("") : s;
+
+const state = { q: "", levels: new Set(LEVELS.map(l => l[0])), teacher: false, open: new Set() };
+try { const s = JSON.parse(localStorage.getItem("aghmarti-verbs") || "{}"); if (Array.isArray(s.levels)) state.levels = new Set(s.levels); if (typeof s.teacher === "boolean") state.teacher = s.teacher; } catch (e) {}
+const save = () => { try { localStorage.setItem("aghmarti-verbs", JSON.stringify({ levels: [...state.levels], teacher: state.teacher })); } catch (e) {} };
+
+for (const v of DATA) {
+  const all = [v.masdar, v.pres3, ...Object.values(v.forms).flat()].filter(Boolean);
+  v._ka = all.join(" ");
+  v._ru = (v.ru || "").toLowerCase();
+}
+
+const el = (t, a = {}, ...kids) => { const e = document.createElement(t); for (const [k, x] of Object.entries(a)) { if (k === "class") e.className = x; else if (k === "style") e.style.cssText = x; else e.setAttribute(k, x); } for (const k of kids) if (k != null) e.append(k); return e; };
+
+const levelsBox = document.getElementById("levels");
+for (const [l, c] of LEVELS) {
+  const b = el("button", { class: "chip", "aria-pressed": String(state.levels.has(l)), style: `--c: var(${c})` }, el("span", { class: "dot" }), l);
+  b.onclick = () => { state.levels.has(l) ? state.levels.delete(l) : state.levels.add(l); if (!state.levels.size) state.levels.add(l); for (const x of levelsBox.children) x.setAttribute("aria-pressed", String(state.levels.has(x.textContent))); save(); render(); };
+  levelsBox.append(b);
+}
+const tBtn = document.getElementById("teacher");
+tBtn.setAttribute("aria-pressed", String(state.teacher));
+tBtn.onclick = () => { state.teacher = !state.teacher; tBtn.setAttribute("aria-pressed", String(state.teacher)); save(); render(); };
+const q = document.getElementById("q");
+let tmr; q.oninput = () => { clearTimeout(tmr); tmr = setTimeout(() => { state.q = q.value.trim(); render(); }, 120); };
+
+function table(v) {
+  const persons = v.type === "indirect" ? INDIRECT_PERSONS : PERSONS;
+  const att = new Set(v.attested_forms || []);
+  const head = el("tr", {}, el("th", {}, ""), ...TENSES.map(([k, ru, ka]) => el("th", { scope: "col" }, ru, el("span", { lang: "ka" }, ka))));
+  const body = persons.map((p, i) => el("tr", {}, el("th", { scope: "row", lang: "ka" }, p), ...TENSES.map(([k]) => {
+    const f = (v.forms[k] || [])[i];
+    return f ? el("td", { class: att.has(f) ? "att" : "", lang: "ka" }, f) : el("td", { class: "none" }, "—");
+  })));
+  return el("div", { class: "tablebox" }, el("table", {}, el("thead", {}, head), el("tbody", {}, ...body)));
+}
+
+function detail(v) {
+  const d = el("div", { class: "detail" });
+  const meta = el("div", { class: "meta" },
+    el("span", {}, "Масдар: ", el("b", { lang: "ka" }, v.masdar || "—")),
+    TYPE_RU[v.type] ? el("span", {}, "Тип: " + TYPE_RU[v.type]) : null,
+    el("span", {}, "Где: " + v.src.join(", ")));
+  d.append(meta);
+  if (v.note) d.append(el("p", { class: "note" }, v.note));
+  if (v.examples && v.examples.length) {
+    const forms = new Set(Object.values(v.forms).flat().filter(Boolean).flatMap(f => f.match(/[ა-ჿ]+/g) || []));
+    const ka = s => s.split(/([ა-ჿ]+)/).map(w => forms.has(w) ? el("mark", {}, w) : w);
+    d.append(el("h3", { class: "exh" }, "Примеры"), el("ul", { class: "examples" }, ...v.examples.map(e => el("li", { class: e.src === "book" ? "book" : "" },
+      el("div", { class: "ka", lang: "ka" }, ...ka(e.ka), e.src === "book" ? el("span", { class: "src", title: "Предложение из книги" }, e.where || "из книги") : null),
+      el("div", { class: "tr" }, e.ru)))));
+  }
+  d.append(table(v));
+  return d;
+}
+
+function row(v) {
+  const it = el("div", { class: "item" });
+  const flags = el("span", { class: "flags" });
+  if (v.teacher_only) flags.append(el("span", { class: "flag", title: "Встречается только в книге учителя" }, "учитель"));
+  const r = el("button", { class: "row", "aria-expanded": String(state.open.has(v.id)) },
+    el("span", { class: "pres", lang: "ka" }, v.pres3 || v.masdar),
+    el("span", { class: "masd", lang: "ka" }, v.masdar),
+    el("span", { class: "ru" }, v.ru),
+    flags);
+  r.onclick = () => {
+    if (state.open.has(v.id)) { state.open.delete(v.id); it.querySelector(".detail")?.remove(); }
+    else { state.open.add(v.id); it.append(detail(v)); }
+    r.setAttribute("aria-expanded", String(state.open.has(v.id)));
+  };
+  it.append(r);
+  if (state.open.has(v.id)) it.append(detail(v));
+  return it;
+}
+
+function render() {
+  const main = document.getElementById("main");
+  const qs = toGeo(state.q).toLowerCase();
+  const isKa = /[ა-ჿ]/.test(qs);
+  const hits = DATA.filter(v => state.levels.has(v.level) && (state.teacher || !v.teacher_only) && (!qs || (isKa ? v._ka.includes(qs) : v._ru.includes(qs))));
+  main.replaceChildren();
+  let total = 0;
+  for (const [l, c] of LEVELS) {
+    if (!state.levels.has(l)) continue;
+    const vs = hits.filter(v => v.level === l);
+    if (!vs.length) continue;
+    total += vs.length;
+    const sec = el("section", { class: "level", style: `--c: var(${c})`, id: "lvl-" + l.replace("+", "p") },
+      el("h2", {}, el("span", { class: "tag" }, l), "Новые глаголы уровня", el("small", {}, vs.length + " " + plural(vs.length))));
+    const list = el("div", { class: "list" });
+    const frag = document.createDocumentFragment();
+    for (const v of vs) frag.append(row(v));
+    list.append(frag); sec.append(list); main.append(sec);
+  }
+  if (!total) main.append(el("p", { class: "empty" }, "Ничего не нашлось. Попробуйте часть основы: «წერ» найдёт и ვწერ, и დავწერე."));
+  document.getElementById("count").textContent = total + " " + plural(total);
+}
+const plural = n => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? "глагол" : a >= 2 && a <= 4 && (b < 12 || b > 14) ? "глагола" : "глаголов"; };
+
+document.getElementById("foot").append(
+  el("p", { class: "legend" }, "Точка ", el("i", {}, "•"), " после формы — эта форма встречается в учебниках серии. Остальные формы построены по правилам спряжения и проверены выборочно; в редких глаголах возможны неточности. Примеры с цветной полосой слева взяты из книг серии (указаны уровень и книга), остальные составлены для справочника."),
+  el("p", {}, META));
+render();
+</script>
